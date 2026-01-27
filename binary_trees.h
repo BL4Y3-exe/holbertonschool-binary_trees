@@ -1,7 +1,7 @@
 #ifndef BINARY_TREES_H
 #define BYNARY_TREES_H
 
-/**
+/*
  * struct binary_tree_s - Binary tree node
  *
  * @n: Integer stored in the node
