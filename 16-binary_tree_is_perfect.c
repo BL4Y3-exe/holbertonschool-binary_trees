@@ -22,6 +22,22 @@ int binary_tree_is_full(const binary_tree_t *tree)
 
 
 /**
+ * height - checks the height of tree
+ * @tree: pointer to the root node of the tree to check
+ * 
+ * Return: 1 if sides are the same height
+ */
+int height(const binary_tree_t *tree)
+{
+    if (!tree)
+        return (0);
+    
+    return (1 + (height(tree->left) > height(tree->right) 
+        ? height(tree->left) 
+        : height(tree->right)));
+}
+
+/**
  * binary_tree_is_perfect - checks if a binary tree is perfect
  * @tree: pointer to the root node of the tree to check
  * 
@@ -33,6 +49,9 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
         return (0);
 
     if (!binary_tree_is_full(tree))
+        return (0);
+
+    if (height(tree->left) != height(tree->right))
         return (0);
 
     if (tree->left == NULL && tree->right == NULL)
